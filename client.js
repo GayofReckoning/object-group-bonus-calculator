@@ -55,11 +55,11 @@ function that takes in one ** Employee ** object(as an argument to the
 */
 let newArray = [];
 
-function bonusCalc(employees) {
+function bonusCalc(array) {
 
-    for (let i = 0; i < employees.length; i++) {
-        console.log(eachCalculation(employees[i]));
-        newArray.push(eachCalculation(employees[i]));
+    for (let i = 0; i < array.length; i++) {
+        console.log(eachCalculation(array[i]));
+        newArray.push(eachCalculation(array[i]));
 
     } //end For loop
     return;
@@ -104,11 +104,18 @@ $(document).ready(calcButton);
 
 
 function calcButton() {
-    $("#calculatorButton").on('click', bonusCalc(employees));
+    $("#calculatorButton").on('click', calcButtonFunction);
+}
+
+function calcButtonFunction(){
+    bonusCalc(employees);
     let el = $( "#employeeList" );
-    for (i = 0; i < newArray.length; i++) {
-        el.append("<li> " + newArray[i] + " </li>");
+    for (let i = 0; i < newArray.length; i++) {
+        el.append("<li> Emplouyee Name: " + newArray[i].name + '<br> Bonus Percentage:' + 
+        newArray[i].bonusPercentage + '<br> Total Compensation: ' + newArray[i].totalCompensation + 
+        '<br> Total Bonus:' + newArray[i].totalBonus + " </li>");
     }
+    return;
 } //end calcButton
 /*
 let bonusObject = {
