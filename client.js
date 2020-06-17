@@ -77,7 +77,7 @@ function eachCalculation(employee) {
         bonusObject.bonusPercentage = 10;
     }
 
-    if (employee.name.length == 4) {
+    if (employee.employeeNumber.length == 4) {
         bonusObject.bonusPercentage += 5;
     }
 
@@ -95,6 +95,7 @@ function eachCalculation(employee) {
 
     bonusObject.name = employee.name;
     bonusObject.totalCompensation = employee.annualSalary * (1 + (bonusObject.bonusPercentage * .01));
+    bonusObject.totalCompensation  =  bonusObject.totalCompensation.toFixed(2);
     bonusObject.totalBonus = parseInt(employee.annualSalary * (bonusObject.bonusPercentage * .01));
 
     return bonusObject;
